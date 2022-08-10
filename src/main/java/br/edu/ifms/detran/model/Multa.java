@@ -114,3 +114,4 @@ public class Multa implements Serializable{
 	
 	
 }
+//get= trazer, post= salvar, puti= atualizar, delite
