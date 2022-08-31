@@ -2,8 +2,14 @@ package br.edu.ifms.detran.Dto;
 
 import java.io.Serializable;
 
+import br.edu.ifms.detran.model.Multa;
+
 public class MultaDto implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String cidade;
 	private int ano;
@@ -12,11 +18,11 @@ public class MultaDto implements Serializable{
 		
 	}
 
-	public MultaDto(Integer id, String cidade, int ano) {
+	public MultaDto(Multa obj) {
 		super();
-		this.id = id;
-		this.cidade = cidade;
-		this.ano = ano;
+		this.id = obj.getId();
+		this.cidade = obj.getCidade();
+		this.ano = obj.getAno();
 	}
 
 	public Integer getId() {

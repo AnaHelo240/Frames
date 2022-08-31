@@ -1,13 +1,13 @@
 package br.edu.ifms.detran.service;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-
-
+import br.edu.ifms.detran.Dto.InfracaoDto;
 import br.edu.ifms.detran.model.Infracao;
 import br.edu.ifms.detran.repository.InfracaoRepository;
 import br.edu.ifms.detran.service.exception.DataIntegrityException;
@@ -53,6 +53,9 @@ public class InfracaoService {
 		return repo.findAll();
 	}
 	
+	public Infracao fromDto(InfracaoDto objDto) {
+		return new Infracao (objDto.getId(), objDto.getDescricao(), objDto.getPontos(), objDto.getValor());
+	}
 	
 	private void updateData(Infracao newObj, Infracao obj) {
 		newObj.setId(obj.getId());

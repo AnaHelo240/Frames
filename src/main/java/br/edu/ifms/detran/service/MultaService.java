@@ -1,12 +1,13 @@
 package br.edu.ifms.detran.service;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-
+import br.edu.ifms.detran.Dto.MultaDto;
 import br.edu.ifms.detran.model.Multa;
 import br.edu.ifms.detran.repository.MultaRepository;
 import br.edu.ifms.detran.service.exception.DataIntegrityException;
@@ -51,6 +52,10 @@ public class MultaService {
 			
 		return repo.findAll();
 }
+	
+	public Multa fromDto(MultaDto objDto) {
+		return new Multa (objDto.getId(), objDto.getCidade(), objDto.getAno(),null,null);
+	}
 	
 	private void updateData(Multa newObj, Multa obj) {
 		newObj.setId(obj.getId());

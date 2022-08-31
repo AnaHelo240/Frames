@@ -6,6 +6,10 @@ import br.edu.ifms.detran.model.Carro;
 
 public class CarroDto implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String nome;
 	private String marca;

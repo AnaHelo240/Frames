@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import br.edu.ifms.detran.Dto.CarroDto;
 import br.edu.ifms.detran.model.Carro;
 import br.edu.ifms.detran.repository.CarroRepository;
 import br.edu.ifms.detran.service.exception.DataIntegrityException;
@@ -52,8 +53,9 @@ public class CarroService {
 		return repo.findAll();
 	}
 	
-	
-
+	public Carro fromDto(CarroDto objDto) {
+		return new Carro(objDto.getId(), objDto.getNome(), objDto.getMarca(), objDto.getPlaca());
+	}
 	
 	private void updateData(Carro newObj, Carro obj) {
 		newObj.setNome(obj.getNome());
